@@ -13,7 +13,7 @@ public class movimiento : MonoBehaviour {
 
 		Vector3 direccion = new Vector3(Camera.main.transform.forward.x, 0, Camera.main.transform.forward.z);
 
-        if (Input.GetKey(KeyCode.Q)) { transform.Translate(direccion * Time.deltaTime * 5, Space.World); }
+        if (Input.GetKey(KeyCode.W)) { transform.Translate(direccion * Time.deltaTime * 5, Space.World); }
 
 		if (Input.GetKey(KeyCode.S)) { transform.Translate(direccion * -1  * Time.deltaTime * 5, Space.World); }
 
