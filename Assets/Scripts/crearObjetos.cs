@@ -24,7 +24,8 @@ public class crearObjetos : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q) && numObjetos > 0) {
             Debug.Log("se presionó w"); 
-            Instantiate(objeto, Jugador.position, Quaternion.identity); 
+            Instantiate(objeto, Jugador.position, Quaternion.identity);
+            numObjetos--;
         }
     }
 
