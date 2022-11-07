@@ -18,20 +18,20 @@ public class Colisiones : MonoBehaviour
     //y con generadores de ruido que los destruye
 
     {
-        player = GameObject.FindWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Player");
         //generadorActivo = GameObject.FindWithTag("generadorRuido");
 
-        enemigo = GameObject.FindWithTag("enemigo");
-        generadorActivo = GameObject.FindWithTag("generadorRuido");
+        enemigo = GameObject.FindGameObjectWithTag("enemigo");
+        generadorActivo = GameObject.FindGameObjectWithTag("generadorRuido");
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        generadorActivo = GameObject.FindWithTag("generadorRuido");
+        generadorActivo = GameObject.FindGameObjectWithTag("generadorRuido");
 
-        DetectarDistancia();
+
     }
 
 
@@ -40,13 +40,6 @@ public class Colisiones : MonoBehaviour
         if (collision.gameObject.tag == "Player") { Debug.Log("Codigo GAME OVER aqui"); }
         if (collision.gameObject.tag == "generadorRuido") { Debug.Log("destruido"); Destroy(collision.gameObject); }
         //generadorActivo.gameObject.tag="nulo";
-    }
-
-
-    void DetectarDistancia()
-    {
-        dist = Vector3.Distance(enemigo.transform.position, generadorActivo.transform.position);
-        Debug.Log(dist);
     }
 
 }
