@@ -22,8 +22,9 @@ public class crearObjetos : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q) && numObjetos > 0) {
-            Debug.Log("se presionó w"); 
+        if (Input.GetKeyDown(KeyCode.Mouse2) && numObjetos > 0)
+        {
+            Debug.Log("se presionó w");
             Instantiate(objeto, Jugador.position, Quaternion.identity);
             numObjetos--;
         }
@@ -46,5 +47,3 @@ public class crearObjetos : MonoBehaviour
 
 
 }
-	
-
