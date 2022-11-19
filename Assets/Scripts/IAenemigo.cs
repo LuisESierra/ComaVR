@@ -14,20 +14,15 @@ public class IAenemigo : MonoBehaviour
     //declarando enemigo como agente del mesh
     NavMeshAgent enemy;
     //declaro el jugador a buscar
-    GameObject player;
+    public GameObject Player;
     //generador ruido
     GameObject ruido;
-
-    //para acceder a mi script de colisiones
-    public Colisiones script;
-
 
     void Start()
     {
         //pidiendo los componentes
         enemy = GetComponent<NavMeshAgent>();
         //le decimos que el jugador es el que lleve esa tag
-        player = GameObject.FindWithTag("Player");
         //ruido = GameObject.FindWithTag("generadorRuido");
     }
 
@@ -44,13 +39,16 @@ public class IAenemigo : MonoBehaviour
 
         try
         {
-            ruido = GameObject.FindWithTag("generadorRuido");
+            ruido = GameObject.FindGameObjectWithTag("generadorRuido");
             //if(script.dist < 1000) { 
             enemy.SetDestination(ruido.transform.position);
             //}
 
         }
-        catch (Exception e) { enemy.SetDestination(player.transform.position); }
+        catch (Exception e) {
+
+            enemy.SetDestination(Player.transform.position); 
+        }
 
 
         //ruido = GameObject.FindWithTag("generadorRuido");
