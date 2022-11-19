@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Slide : MonoBehaviour {
+public class Slide : MonoBehaviour
+{
 
 	public Vector3 endPos;
 	public float speed = 1.0f;
@@ -11,51 +12,55 @@ public class Slide : MonoBehaviour {
 
 	private Vector3 startPos;
 	private float delay = 0.0f;
-	void Start () {
+	void Start()
+	{
 		startPos = transform.position;
 	}
-	
+
 	// Update is called once per frame
-	void Update () {
-		if(moving)
-        {
-			if(opening)
-            {
+	void Update()
+	{
+		if (moving)
+		{
+			if (opening)
+			{
 				MoveDoor(endPos);
-            } else
-            {
+			}
+			else
+			{
 				MoveDoor(startPos);
-            }
-        }
+			}
+		}
 	}
 
 	void MoveDoor(Vector3 goalPos)
-    {
+	{
 		float dist = Vector3.Distance(transform.position, goalPos);
 		if (dist > 0.1f)
-        {
+		{
 			transform.position = Vector3.Lerp(transform.position, goalPos, speed * Time.deltaTime);
-        }
+		}
 		else
-        {
-			if(opening)
-            {
+		{
+			if (opening)
+			{
 				delay += Time.deltaTime;
 				if (delay > 1.5f)
-                {
+				{
 					opening = false;
-                }
-            } else
-            {
+				}
+			}
+			else
+			{
 				moving = false;
 				opening = true;
-            }
-        }
-    }
+			}
+		}
+	}
 	public bool Moving
-    {
-        get { return moving; }
+	{
+		get { return moving; }
 		set { moving = value; }
 
-    }
+	}
 }
