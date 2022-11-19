@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Colisiones : MonoBehaviour
+public class winCon : MonoBehaviour
 {
     // Start is called before the first frame update
     GameObject player;
@@ -38,8 +38,9 @@ public class Colisiones : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Player") { 
-            SceneManager.LoadScene(2); 
+        if (collision.gameObject.tag == "Player")
+        {
+            SceneManager.LoadScene(3);
         }
         if (collision.gameObject.tag == "generadorRuido") { Debug.Log("destruido"); Destroy(collision.gameObject); }
         //generadorActivo.gameObject.tag="nulo";
